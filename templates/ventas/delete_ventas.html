@@ -1,0 +1,14 @@
+{% extends 'teslo/base.html' %}
+
+{% block title %}Teslo - Descartar Venta{% endblock %}
+
+{% block contenido %}
+<div class="bg-light mt-5 rounded p-2">
+  <h2 class="">¿Estas seguro que desea eliminar la venta {{ venta.id }}?</h2>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a href="{% url 'usuarios' %}" class="btn btn-secondary">Cancelar</a>
+  </form>
+</div>
+{% endblock %}

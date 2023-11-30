@@ -1,0 +1,18 @@
+{% extends 'teslo/base.html' %}
+
+{% block title %}Teslo - Crear Usuario{% endblock %}
+{% load crispy_forms_tags %}
+
+{% block contenido %}
+<div class="bg-light mt-5 rounded p-2">
+  <h2 class="mt-2 text-center">Crear usuario</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-primary text-center">Crear</button>
+    <a href="{% url 'usuarios' %}" class="btn btn-secondary">Cancelar</a>
+  </form>
+</div>
+
+{% endblock %}
+```

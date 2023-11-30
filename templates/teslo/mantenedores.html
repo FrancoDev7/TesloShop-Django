@@ -1,0 +1,16 @@
+{% extends 'teslo/base.html' %}
+
+{% block title %}Teslo - Mantenedores{% endblock %}
+
+{% block contenido %}
+<h1 class="mt-5 text-center text-white fw-bolder">Administración Teslo Shop</h1>
+  <div class="page-container">
+    <div class="catalogo-name">
+      <button class="buton"><a class="text-decoration-none text-reset" href="{% url 'productos' %}">Mantenedor de Productos</a></button>
+      <button class="buton"><a class="text-decoration-none text-reset" href="{% url 'ventas' %}">Mantenedor de Ventas</a></button>
+      <button class="buton"><a class="text-decoration-none text-reset" href="{% url 'usuarios' %}">Mantenedor de Clientes</a></button>
+    </div>
+  </div>
+{% endblock %}
+
+

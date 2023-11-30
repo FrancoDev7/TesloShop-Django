@@ -1,0 +1,50 @@
+{% extends 'teslo/base.html' %}
+
+{% block title %}Teslo - Shop{% endblock %}
+
+{% block contenido %}
+ 
+  <h1 class="text-white text-center  fw-bolder mt-4">Productos</h1>
+  
+  {% if messages %}
+  <div class="text-center d-flex justify-content-center  align-items-center mt-3 ">
+    <ul class="messages alert alert-success text-decoration-none ">
+      {% for message in messages %}
+        <li{% if message.tags %} class="text-decoration-none {{ message.tags }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+  <div class="grid-container mt-5 p-1">
+    {% for producto in productos %}
+      <div class="productos-card">
+        <img class = "image-product" src="{{producto.imagen.url}}" alt="">
+        <div class="producto-card-info text-wrap">
+          <h3 class="text-white text-center fw-bolder mt-3">{{producto.nombre}}</h3>
+          <p class="text-white text-center ">{{producto.descripcion}}</p>
+          <p class="precio text-white text-center fw-bolder">${{producto.precio}}</p>
+          {% if user.is_authenticated %}
+          <a href="{% url 'formulario_venta' producto.id %}" class="btn btn-outline-light add-btn">
+            Comprar Ahora
+          </a>      
+          {% else %}
+          <a href="{% url 'login' %}" class="btn btn-outline-light add-btn">
+            inicia sesion para comprar
+          </a>
+          {% endif %}
+     
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <script>
+    setTimeout(function() {
+      var messages = document.getElementsByClassName("messages")[0];
+      if (messages) {
+        messages.style.display = "none";
+      }
+    }, 3000);  
+  </script>
+{% endblock %}
+```

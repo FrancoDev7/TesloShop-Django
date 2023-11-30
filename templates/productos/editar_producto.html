@@ -1,0 +1,18 @@
+{% extends 'teslo/base.html' %}
+
+{% block title %}Teslo - Editar Producto{% endblock %}
+{% load crispy_forms_tags %}
+
+{% block contenido %}
+
+<div class="bg-light mt-4 rounded p-3">
+  <h2 class="text-center" >Editar producto</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-primary ">Guardar Cambios</button>
+    <a href="{% url 'productos' %}" class="btn btn-secondary">Cancelar</a>
+  </form>
+</div>
+
+{% endblock %}
